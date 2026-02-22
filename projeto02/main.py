@@ -1,16 +1,12 @@
 from classifier import classificar_mensagem
 
-mensagens_cliente = [
-    "Quero contratar o plano premium",
-    "O sistema está com erro",
-    "Quero cancelar minha assinatura",
-    "Quero falar com um atendente",
-    "Preciso de ajuda com meu pagamento",
-    "Gostaria de atualizar minhas informações de conta",
-    "Vocês trabalham no sábado"
-]
+TEMPERATURES = [0.0, 0.5, 1.0]
 
-for mensagem in mensagens_cliente:
-    resposta = classificar_mensagem(mensagem)
-    print(f"Cliente: {mensagem}")
-    print(f"Resposta: {resposta}\n")
+mensagem_teste = "Quero cancelar minha assinatura"
+
+for temp in TEMPERATURES:
+    print(f"\n===== TESTANDO TEMPERATURA {temp} =====")
+
+    for i in range(10):
+        resposta = classificar_mensagem(mensagem_teste, temperature=temp)
+        print(f"Execução {i+1}: {resposta}")
